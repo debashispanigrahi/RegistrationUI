@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
+import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    ValidationErrorsComponent
+    ValidationErrorsComponent,
+    ErrorpageComponent
   ],
   imports: [
     BrowserModule,

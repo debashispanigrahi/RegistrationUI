@@ -11,7 +11,6 @@ export class RegisterService {
   constructor(private apiService: APIService) { }
 
   register(data: any) {
-    debugger;
     return this.apiService.postData(ENVLINKS.ENDPOINT, data);
   }
 }

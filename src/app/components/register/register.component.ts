@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     ifb: FormBuilder,
-    private regService: RegisterService
+    private regService: RegisterService,
+    private router: Router
   ) {
     this.fb = ifb;
     this.intilizeForms();
@@ -38,7 +40,6 @@ export class RegisterComponent implements OnInit {
   }
   formSubmit() {
     this.submitted = true;
-    debugger;
     if (this.registerForm.invalid) {
       alert('Fill mandatory fields');
       return;
@@ -47,16 +48,19 @@ export class RegisterComponent implements OnInit {
       var result = this.regService.register(
         this.registerForm.value
       );
-      result.subscribe((jsonData) => {
-        //this.loading = true;
+      result.subscribe(jsonData => {
         if (jsonData.statusCode == 200) {
           this.reset();
           alert('Success');
         }
         else {
-          alert('Fail');
+          this.router.navigate(['error']);
         }
-      });
+      },
+        error => {
+          this.router.navigate(['error']); 
+        }
+      );
     }
   }
   reset() {
