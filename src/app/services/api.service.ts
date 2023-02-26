@@ -23,6 +23,14 @@ export class APIService {
     );
   }
 
+  getData(url: string, inputData: any): Observable<any> {
+    return this.http.get(url, this.httpOptions).pipe(
+      map((json) => this.fromServerModel(json)),
+      catchError(error => { return this.handleError(error) }),
+      tap(() => { })
+    );
+  }
+
   fromServerModel(json: any) {
     return json;
   }

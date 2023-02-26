@@ -4,5 +4,5 @@ export const environment = {
 
 export const ENVLINKS = {
 
-  ENDPOINT: 'https://localhost:5001/api/Register'
+  ENDPOINT: 'https://localhost:7110/api/Register'
 }

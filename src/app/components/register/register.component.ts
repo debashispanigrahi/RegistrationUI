@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null, Validators.required),
       mobile: new FormControl(null, Validators.required),
       address: new FormControl(null, [Validators.required]),
-      state: new FormControl("-- Select State --", [Validators.required]),
+      state: new FormControl("", [Validators.required]),
       city: new FormControl(null, [Validators.required]),
       zipCode: new FormControl(null, [Validators.required])
     });
